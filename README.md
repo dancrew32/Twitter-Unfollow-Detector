@@ -4,10 +4,14 @@ Get notified when someone unfollows you on Twitter
 
 ## Install
 
-* Setup `virtualenv` and install dependencies:
+
+* Clone and setup `virtualenv` and install dependencies:
 
 ```bash
-virtualenv venv && ./venv/bin/pip install -r requirements.txt
+git clone git@github.com:dancrew32/Twitter-Unfollow-Detector.git tud &&
+cd tud &&
+virtualenv venv && 
+./venv/bin/pip install -r requirements.txt
 ```
 
 * Make your own `settings.py`
@@ -23,7 +27,7 @@ cp settings-example.py settings.py
 * Run script every now and then `crontab -e`:
 
 ```bash
-30 * * * * /path/to/venv/bin/python /path/to/unfollow_detector.py > /dev/null 2>&1
+30 * * * * /path/to/tud/venv/bin/python /path/to/tud/unfollow_detector.py > /dev/null 2>&1
 ```
 
 
