@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+*.pyc
+venv
+settings.py
+.follower_cache.json
