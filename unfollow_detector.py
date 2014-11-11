@@ -66,19 +66,17 @@ class UnfollowDetector(object):
     @classmethod
     def main(cls):
         detector = cls()
-        if not detector.difference:
-            detector.end()
-
         out = []
         for user_id in detector.difference:
             u = detector.api.get_user(user_id=user_id)
             if u.id not in detector.current_followers:
                 out.append("%s is no longer your follower: %s" % (u.screen_name, u.url))
 
-        if not out:
-            detector.end()
+        if out:
+            detector.mail(out)
+        detector.end()
 
-        detector.mail(out)
+        
 
 if __name__ == "__main__":
     UnfollowDetector.main()
